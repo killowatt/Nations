@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using SFML.Graphics;
 
 namespace Nations
 {
     public class Nation
     {
         public World Parent;
+        List<Province> provinces;
 
         public string Name;
         public int Balance;
@@ -15,6 +15,9 @@ namespace Nations
         // TODO: add resources
         // TODO: add things like "int totalpopulation" which manually goes through all the province data and counts the total.
 
-        List<Province> provinces;
+        public Nation(World parent)
+        {
+            Parent = parent;
+        }
     }
 }

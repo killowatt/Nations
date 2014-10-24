@@ -10,5 +10,9 @@ namespace Nations
         
         // TODO: add time. things will be based on time
         // TODO: add total world population which just counts EVERYTHING
+
+        public World()
+        {
+        }
     }
 }
