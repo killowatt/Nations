@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using SFML.Graphics;
 using SFML.Window;
+using Nations.Common;
 using Nations.States;
 
 namespace Nations
@@ -17,8 +18,10 @@ namespace Nations
 
         public Game()
         {
+            Settings settings = Settings.Load("settings.txt");
+
             currentState = new TestState(this);
-            renderWindow = new RenderWindow(new VideoMode(1280, 720), "Nations");
+            renderWindow = new RenderWindow(new VideoMode(settings.Width, settings.Height), "Nations");
 
             // Loop
             time = new Stopwatch();
