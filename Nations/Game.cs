@@ -16,12 +16,27 @@ namespace Nations
         bool running;
         double updateRate;
 
+        public void Close()
+        {
+            running = false;
+            renderWindow.Close();
+        }
+
+        #region Events
+        void closed(object sender, EventArgs e)
+        {
+            Close();
+        }
+        #endregion
+
         public Game()
         {
             Settings settings = Settings.Load("settings.txt");
 
+            renderWindow = new RenderWindow(new VideoMode(settings.Width, settings.Height), "Nations", Styles.Close);
+            renderWindow.Closed += closed;
+            
             currentState = new TestState(this);
-            renderWindow = new RenderWindow(new VideoMode(settings.Width, settings.Height), "Nations");
 
             // Loop
             time = new Stopwatch();
@@ -41,6 +56,7 @@ namespace Nations
 
                 while (lag >= updateRate)
                 {
+                    renderWindow.DispatchEvents();
                     currentState.Update();
                     lag -= updateRate;
                 }

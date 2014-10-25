@@ -6,13 +6,13 @@ namespace Nations
 {
     public abstract class State
     {
-        RenderTarget renderTarget;
+        protected RenderWindow renderWindow;
 
         public abstract void Update();
         public abstract void Render();
         public State(Game game)
         {
-            renderTarget = game.renderWindow;
+            renderWindow = game.renderWindow;
         }
     }
 }

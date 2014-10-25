@@ -1,4 +1,5 @@
 ﻿using System;
+using SFML.Graphics;
 
 namespace Nations.States
 {
@@ -6,11 +7,12 @@ namespace Nations.States
     {
         public override void Update()
         {
-            Console.WriteLine("update");
         }
         public override void Render()
         {
-            Console.WriteLine("render");
+            renderWindow.Clear(new Color(234, 225, 225));
+
+            renderWindow.Display();
         }
         public TestState(Game game)
             : base(game)
