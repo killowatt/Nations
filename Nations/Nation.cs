@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Nations.GovernmentSystems;
 
 namespace Nations
 {
@@ -10,10 +12,18 @@ namespace Nations
 
         public string Name;
         public int Balance;
-        // TODO: add government
+        public int Population
+        {
+            get
+            {
+                return provinces.Sum(province => province.Population);
+            }
+        }
+        public Government Government;
+        public Economy Economy;
+
         // TODO: add unhappiness
         // TODO: add resources
-        // TODO: add things like "int totalpopulation" which manually goes through all the province data and counts the total.
 
         public Nation(World parent)
         {
